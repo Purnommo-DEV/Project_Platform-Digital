@@ -1,0 +1,29 @@
+- Logo Jakilat di Navbar
+* DIGITAL MARKETING -> Platform Digital
+* Award winning digital marketing agency -> Perluas jangkauan berikan kemudahan
+- WATCH PROCESS -> Ayo Bergabung (Saat diklik muncul PDF(Halaman Baru))
+* What we Do -> Kami Memberikan
+* Layanan Platform jangan scroll
+* Layanan Platform -> (Title)Promosikan lembaga (Deskripsi)Miliki link website lembaga secara gratis.
+- assets/img/shape/anim-1.png ubh jadi logo IKN
+* Check Your Website’s SEO Score For Free! -> Temukan Mitra Kami Dan Hubungi <strong>Secara Gratis</strong>
+* Kategori Lembaga -> Masukkan Pencarian
+- Card bagian mitra ubah mnjadi 2 (Versi Mobile)
+
+* loader Digalu Ubah jdi JAKILAT
+
+Halaman detail mitra :
+- bagian banner di bawah icon sosmed tmbahkan "button share link
+- bg dn logo di ubah
+* "LEMBAGA KURSUS DAN PENDIDIKAN" -> ubh jadi Nama Kategori
+* (1) PREVIOUS PROJECTS -> Klik Banner
+* (1) Our Featured Projects -> Promosi
+* Saat diklik banner mnjadi besar
+* (2) PREVIOUS PROJECTS -> Jelajahi
+* (2) Our Featured Projects -> Produk
+
+* Terms Privacy Support -> Syarak Ketentuan(Arahkan ke PDF)
+* © Copyright 2023. All Rights Reserved by validthemes -> PT. IDE Kreatif Nusantara
+
+ADMIN:
+menu Transaksi -> tmbah keterangan biaya 
