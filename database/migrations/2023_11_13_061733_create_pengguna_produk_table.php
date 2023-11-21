@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pengguna_produk', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('users_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('lkp_id')->constrained('lkp')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('nama_gambar');
             $table->text('path');
             $table->timestamps();

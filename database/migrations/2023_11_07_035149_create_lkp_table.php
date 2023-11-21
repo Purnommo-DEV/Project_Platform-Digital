@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignUuid('users_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('lkp');
-            $table->foreignId('kategori_id')->constrained('kategori')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('kategori');
+            $table->foreignUuid('kota_id')->constrained('kota')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('slug');
             $table->text('deskripsi');
             $table->text('path');

@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('entrepreneur', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('users_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->text('name');
             $table->foreignId('lkp_id')->constrained('lkp')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('slug');
             $table->text('deskripsi')->nullable();
+            $table->string('kategori')->nullable();
+            $table->foreignId('kota_id')->nullable()->constrained('kota')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('path')->nullable();
+            $table->foreignId('status_akun_id')->nullable()->constrained('status_akun')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('tanggal_berakhir')->nullable();
             $table->timestamps();
         });
     }
