@@ -17,17 +17,14 @@ class Admin_PenggunaController extends Controller
 {
     public function pengguna()
     {
-        $kategori = LKP_Kategori::get();
-        return view('Back.Admin.pengguna.pengguna', compact('kategori'));
+        return view('Back.Admin.pengguna.pengguna');
     }
 
     public function data_pengguna(Request $request)
     {
-        $data = LKP::select([
-            'lkp.*'
-        ])->with('relasi_user', 'relasi_entrepreneur')->where('role_id', 2)->orderBy('created_at', 'desc');
-
-        // dd(count($data->relasi_entrepreneur));
+        $data = User::select([
+            'users.*'
+        ])->with('relasi_lkp')->where('role_id', 2)->orderBy('created_at', 'desc');
 
         if ($request->input('search.value') != null) {
             // $data = $data->where(function ($q) use ($request) {

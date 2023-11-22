@@ -7,8 +7,6 @@ use App\Models\User;
 use App\Models\LKP_Iklan;
 use App\Models\LKP_Sosmed;
 use Illuminate\Http\Request;
-use App\Models\LKP_GambarProduk;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Entrepreneur;
 use App\Models\PenggunaProduk;
@@ -18,7 +16,7 @@ class Front_BerandaController extends Controller
 {
     public function beranda()
     {
-        $lkp = LKP::with('relasi_kategori', 'relasi_kota')->get();
+        $lkp = LKP::with('relasi_kota')->get();
         return view('Front.beranda.beranda', compact('lkp'));
     }
 
@@ -30,7 +28,7 @@ class Front_BerandaController extends Controller
 
     public function detail_lkp($slug)
     {
-        $lkp_detail = LKP::with('relasi_kategori', 'relasi_kota')->where('slug', $slug)->first();
+        $lkp_detail = LKP::with('relasi_kota')->where('slug', $slug)->first();
         $iklan_lkp = LKP_Iklan::where('lkp_id', $lkp_detail->id)->get();
         $sosmed_lkp = LKP_Sosmed::where('lkp_id', $lkp_detail->id)->get();
         $produk_pengguna = PenggunaProduk::where('lkp_id', $lkp_detail->id)->get();
@@ -72,7 +70,7 @@ class Front_BerandaController extends Controller
                 'status_tidak_ditemukan' => 1
             ]);
         } else {
-            $data_lkp = LKP::with('relasi_kategori', 'relasi_kota')->where('id', $request->mitra_id)->first();
+            $data_lkp = LKP::with('relasi_kota')->where('id', $request->mitra_id)->first();
 
             return response()->json([
                 'status_ditemukan' => 1,
@@ -83,7 +81,7 @@ class Front_BerandaController extends Controller
 
     public function tampil_semua_lkp(Request $request)
     {
-        $lkp = LKP::with('relasi_kategori')->get();
+        $lkp = LKP::get();
         if ($request->ajax()) {
             $view = view('Front.beranda.lkp', compact('lkp'))->render();
 
@@ -94,10 +92,16 @@ class Front_BerandaController extends Controller
     public function tampil_semua_entrepreneur(Request $request)
     {
         $entrepreneur = Entrepreneur::with('relasi_user', 'relasi_kota')->get();
-        if ($request->ajax()) {
-            $view = view('Front.beranda.entrepreneur', compact('entrepreneur'))->render();
-
-            return response()->json(['html' => $view]);
+        if ($entrepreneur->count() == 0) {
+            return response()->json(['status_data_kosong' => 1]);
+        } else {
+            if ($request->ajax()) {
+                $view = view('Front.beranda.entrepreneur', compact('entrepreneur'))->render();
+                return response()->json([
+                    'status_data_ada' => 1,
+                    'html' => $view
+                ]);
+            }
         }
     }
 

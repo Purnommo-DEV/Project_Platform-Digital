@@ -6,8 +6,12 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-5">
                         <div class="boosting-style-one-thumb mb-md-60 mb-xs-40">
-                            <img class="card-img-top wow fadeInLeft" src="{{ asset('storage/' . $lkp_detail->path) }}"
-                                alt="Image not found" style="aspect-ratio: 2/2; border-radius: 1rem;">
+                            @if ($lkp_detail->path == null)
+                                <img src="/All/img/no_image.jpg" style="aspect-ratio: 2/2; border-radius: 1rem;">
+                            @else
+                                <img class="card-img-top wow fadeInLeft" src="{{ asset('storage/' . $lkp_detail->path) }}"
+                                    alt="Image not found" style="aspect-ratio: 2/2; border-radius: 1rem;">
+                            @endif
                         </div>
                     </div>
                     <div class="col-lg-5">

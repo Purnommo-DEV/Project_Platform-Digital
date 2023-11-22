@@ -6,9 +6,9 @@
 <script src="{{ asset('Front/js/modernizr.custom.13711.js') }}"></script>
 <script src="{{ asset('Front/js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('Front/js/wow.min.js') }}"></script>
-<script src="{{ asset('Front/js/progress-bar.min.js') }}"></script>
+{{-- <script src="{{ asset('Front/js/progress-bar.min.js') }}"></script> --}}
 <script src="{{ asset('Front/js/circle-progress.js') }}"></script>
-<script src="{{ asset('Frontjs/isotope.pkgd.min.js/') }}"></script>
+{{-- <script src="{{ asset('Frontjs/isotope.pkgd.min.js/') }}"></script> --}}
 <script src="{{ asset('Front/js/imagesloaded.pkgd.min.js') }}"></script>
 <script src="{{ asset('Front/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('Front/js/count-to.js') }}"></script>

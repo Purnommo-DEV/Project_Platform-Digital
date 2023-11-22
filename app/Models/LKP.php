@@ -16,11 +16,6 @@ class LKP extends Model
         return $this->hasOne(User::class, 'id', 'users_id');
     }
 
-    public function relasi_kategori()
-    {
-        return $this->belongsTo(LKP_Kategori::class, 'kategori_id', 'id');
-    }
-
     public function relasi_kota()
     {
         return $this->belongsTo(Kota::class, 'kota_id', 'id');

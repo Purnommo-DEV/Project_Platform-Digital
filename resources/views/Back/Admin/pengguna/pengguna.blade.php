@@ -189,7 +189,7 @@
                     "class": "text-wrap text-center",
                     "render": function(data, type, row, meta) {
                         daftar_data_pengguna[row.id] = row;
-                        return row.lkp;
+                        return row.relasi_lkp.lkp;
                     }
                 },
                 {
@@ -197,7 +197,7 @@
                     "class": "text-wrap text-center",
                     "render": function(data, type, row, meta) {
                         daftar_data_pengguna[row.id] = row;
-                        return row.relasi_user.email;
+                        return row.email;
                     }
                 },
                 {
@@ -219,7 +219,7 @@
                         let tampilan;
                         tampilan = `
                                 <div class="ms-auto">
-                                    <a class="btn btn-sm btn-success" href="/admin/detail-pengguna/${row.slug}">Detail</a>
+                                    <a class="btn btn-sm btn-success" href="/admin/detail-pengguna/${row.relasi_lkp.slug}">Detail</a>
                                     <button type="button" class="btn btn-warning btn-sm edit_pengguna" id-pengguna = "${row.id}" href="#!">Edit</button>
                                     <button type="button" class="btn btn-danger btn-sm hapus_pengguna" id-pengguna = "${row.id}" href="#!">Hapus</button>
                                 </div>

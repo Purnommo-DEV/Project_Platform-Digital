@@ -247,30 +247,6 @@
                         // infinteLoadMore()
                     } else if (response.status_ditemukan == 1) {
                         let post =
-
-                            //     <div class="row d-flex justify-content-center" id="mitra_data_id"
-                            //     style="margin-bottom: 5rem;margin-top: 2rem;">
-                            //     <div class="single-item col-lg-3 col-md-8">
-                            //             <div class="team-style-one-item"
-                            //                 style="background-image: url({{ asset('Front/img/shape/11.png') }});">
-
-                            //                 <div class="thumb">
-                            //                     <img src="/storage/${response.data.path}" class="card-img-top"
-                            //                         alt="Image not found" style="aspect-ratio: 2/2;">
-                            //                 </div>
-                            //                 <div class="info">
-                            //                     <h4><a
-                            //                             href="/detail-lkp/${response.data.slug}">${response.data.lkp}</a>
-                            //                     </h4>
-                            //                     <span>${response.data.relasi_kategori.kategori}</span>
-                            //                 </div>
-                            //             </div>
-                            //         </div>
-                            //         <a class="btn btn-sm btn-primary tampilkan_semua"
-                            //         style="font-weight: 500!important; padding: 5px!important; background: #ffffff;
-                            // color: #000000;">Tampilkan Semua</a>
-                            //         </div>;
-
                             `
                         <div class="row d-flex justify-content-center class-mitra-data" id="mitra_data_id" style="margin-bottom: 5rem;margin-top: 2rem;">
                             <div class="col-lg-3 col-md-8 single-item">
@@ -281,7 +257,7 @@
                                                 style="aspect-ratio: 2/2;">
                                         </a>
                                         <div class="tags">
-                                            <a href="#">${response.data.relasi_kategori.kategori}</a>
+                                            <a href="#">${response.data.kategori}</a>
                                         </div>
                                     </div>
                                     <div class="info h-100">
@@ -350,9 +326,27 @@
                     }
                 })
                 .done(function(response) {
-                    $('.auto-load').hide();
-                    $('#mitra_data_id').replaceWith(response.html);
-                    $('#cari-mitra').val('');
+                    if (response.status_data_kosong) {
+                        let post = `
+                        <div class="row d-flex justify-content-center class-mitra-data" id="mitra_data_id"
+                                style="margin-bottom: 5rem;margin-top: 2rem;">
+                                <div class="single-item col-lg-3 col-md-8">
+                                    <div class="thumb">
+                                        <img src="{{ asset('All/img/no-data.jpg') }}" class="card-img-top" style="aspect-ratio: 2/2;">
+                                    </div>
+                                    <div class="info">
+                                        <h4>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>`
+                        $('.auto-load').hide();
+                        $('#mitra_data_id').replaceWith(post);
+                    } else {
+                        $('.auto-load').hide();
+                        $('#mitra_data_id').replaceWith(response.html);
+                        $('#cari-mitra').val('');
+                    }
                 })
                 .fail(function(jqXHR, ajaxOptions, thrownError) {
                     console.log('Server error occured');

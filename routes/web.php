@@ -4,7 +4,6 @@ use App\Http\Controllers\Back\Admin\Admin_BillingController;
 use App\Http\Controllers\Back\Admin\Admin_DashboardController;
 use App\Http\Controllers\Back\Admin\Admin_KategoriController;
 use App\Http\Controllers\Back\Admin\Admin_LaporanKeuanganController;
-use App\Http\Controllers\Back\Admin\Admin_LembagaController;
 use App\Http\Controllers\Back\Admin\Admin_PenggunaController;
 use App\Http\Controllers\Back\Admin\Admin_SliderController;
 use App\Http\Controllers\Back\Admin\Admin_TransaksiController;
@@ -125,13 +124,6 @@ Route::group(['middleware' => ['xss']], function () {
             });
 
             Route::controller(Lembaga_LKPController::class)->group(function () {
-                Route::get('/lkp', 'lkp')->name('HalamanLKP');
-                Route::any('/data-lkp', 'data_lkp')->name('DataLKP');
-                Route::post('/tambah-data-lkp', 'tambah_data_lkp')->name('TambahDataLKP');
-                Route::post('/edit-data-lkp', 'edit_data_lkp')->name('EditDataLKP');
-                Route::get('/hapus-data-lkp/{lkp_id}', 'hapus_data_lkp');
-                Route::get('/detail-lkp/{slug}', 'detail_lkp')->name('HalamanLKP.DetailLKP');
-
                 Route::get('/sosial-media', 'sosmed')->name('HalamanSosialMediaLKP');
                 Route::any('/data-lkp-sosmed/{lkp_id}', 'data_lkp_sosmed');
                 Route::post('/tambah-data-lkp-sosmed', 'tambah_data_lkp_sosmed')->name('TambahDataLKPSosmed');

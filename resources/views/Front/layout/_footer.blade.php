@@ -1,4 +1,4 @@
-<footer class="bg-dark text-light" style="background-image: url(assets/img/shape/35.png);">
+<footer class="bg-dark text-light">
     <div class="footer-bottom bg-dark-secondary">
         <div class="container">
             <div class="row">
